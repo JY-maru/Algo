@@ -1,6 +1,6 @@
 # Algorithm
-- 코딩테스트 연습을 위한 repo입니다.
-## 문제 출저
+- 코딩테스트 문제 풀이를 위한 Repo
+## 문제 출처
 - BOJ
 - Programmers
 
