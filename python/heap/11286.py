@@ -28,12 +28,11 @@ def sol(T):
         if n != 0:
             if n > 0:
                 heapq.heappush(minh, n)
-                print(minh, maxh)
+                
             else : 
                 heapq.heappush(maxh, -n)
-                print(minh,maxh)
+                
 
-        
         else :
             if minh and maxh:
                 if minh[0] < maxh[0]:
@@ -43,17 +42,12 @@ def sol(T):
                 else :
                     print(-(heapq.heappop(maxh)))
                     # print(minh,maxh)
-    
             elif minh and not maxh:
                 print(heapq.heappop(minh))
             elif maxh and not minh:
                 print(-(heapq.heappop(maxh)))
-
             elif (not minh) and (not maxh):
                 print(0)
-
-
-
 
 ## input
 import sys
