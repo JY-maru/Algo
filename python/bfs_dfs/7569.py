@@ -35,6 +35,8 @@ def sol(box, m,n,h):
 
     if cnt0 == 0:
         return cnt0
+    
+    #bfs
     while days[day]:
         vz,vr,vc = days[day].popleft()
 
