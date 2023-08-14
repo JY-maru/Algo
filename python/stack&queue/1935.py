@@ -18,7 +18,6 @@ def sol(expr):
     nstack = []
     answer = 0
     for i in range(len(expr)):
-        print(expr[i], nstack)
         if expr[i].isalpha(): nstack.append(alpha[ord(expr[i])])
         else :
             if nstack:
@@ -27,9 +26,6 @@ def sol(expr):
                 tmp =  eval(y + expr[i] + x)
                 nstack.append(str(tmp))
     print('%.2f'%float(nstack.pop()))
-    
-
-
 
 ## input
 N = int(input())

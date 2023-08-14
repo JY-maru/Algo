@@ -28,26 +28,7 @@
 출력
 첫째 줄에 후위 표기식으로 바뀐 식을 출력하시오
 '''
-# 우선순위 높은 식 내 존재하는 부호를 queue에 넣는다.
-# a*b-c -> (ab*)-c -> ab*c- 
-# for expr[i] in ['+','-','*','/','(',')']:
-#     print(ord(expr[i]))
-
-
-# print('a*(b-c*(d+e))'.split('('))
-# *(-*(+ : abcde+*-*
-
-# a+b*c-d+(e*f-g) : 괄호 들어가는 와중에도 스텍 top의 부호보다 우선순위가 낮거나 같으면'('까지 pop
-# abc*+def*g-+-
-# +* -p-> -+(* -p-> -+(
-# a+b*c-d+(e+f-g)
-# abc*+def+g-+-
-# a+b*c-d+(e*f-g+h)-i*j
-# abc*+d-ef*g-h++ij*- : 마지막에 다다랐을 때, 모두 pop, ')'만나면, stack내 연산자 ( 까지 pop
-# a+b*c-d+(e*f-g+h)*i-j
-# abc*+d-ef*g-h+i*+j-
-# +*
-# a+b+c : ab+c+
+# 우선순위 높은 식 내 존재하는 부호를 stack에 넣는다.
 
 ## method
 def sol(expr):
@@ -56,7 +37,6 @@ def sol(expr):
     answer = ''
 
     for i in range(leng):
-        print(expr[i], oper_stack, answer)
         if expr[i].isalpha(): answer += expr[i]
         else : # expr[i] 가 +,-,*,/,(,)
             if expr[i] == '(': oper_stack.append(expr[i])
@@ -81,7 +61,6 @@ def sol(expr):
 ## input
 expr = input()
 ## output
-# print(sol(expr))
 print(sol(expr))
 
 '''
