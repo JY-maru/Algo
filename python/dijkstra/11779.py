@@ -20,11 +20,14 @@ def sol(s,e):
     from collections import defaultdict,deque
     import heapq
     updated_w = defaultdict(lambda : float('inf'))
-    
+    prev_u = dict() # v의 이전노드 기록 (u)
+
     will_visit = [(s,0)]
 
     while will_visit:
         vu, vw = heapq.heappop(will_visit)
+
+        if vw > updated_w[vu]: continue
 
         for adjv, adjw in graph[vu]:
             if updated_w[adjv] > vw + adjw : # v 와 u + w 비교
@@ -57,7 +60,6 @@ for _ in range(m):
     u,v,w = map(int,input().split())
     graph[u].append((v,w))
 start, end = map(int, input().split())
-prev_u = [start]*(n+1) # v의 이전노드 기록 (u)
 
 ## output
 sol(start,end)
