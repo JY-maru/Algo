@@ -37,6 +37,7 @@ def sol(expr):
     answer = ''
 
     for i in range(leng):
+        
         if expr[i].isalpha(): answer += expr[i]
         else : # expr[i] 가 +,-,*,/,(,)
             if expr[i] == '(': oper_stack.append(expr[i])
@@ -52,7 +53,7 @@ def sol(expr):
                 while oper_stack and oper_stack[-1] != '(': #( 존재한다면 ( 전까지 스텍 내 연산자들을 다 빼냄. 마지막 ( 도 pop
                     answer += oper_stack.pop() 
                 oper_stack.pop()
-    
+        
     while oper_stack:
         answer += oper_stack.pop()
 
