@@ -31,10 +31,6 @@ def sol(k):
             used[i] = True 
             sol(k+1) 
             used[i] = False
-        
-
-    
-    
 
 ## input
 n,m = map(int, input().split())
