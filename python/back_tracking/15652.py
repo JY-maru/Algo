@@ -27,13 +27,10 @@ def sol(k): # k는 고른 갯수.
         return
     
     for i in range(1,n+1):
-        # if not used[i]:
         seq[k] = i
-        # print(seq, seq[k] ,seq[k-1])
         if k > 0 and seq[k] < seq[k-1] : continue
         sol(k+1)
         
-
 ## input
 n,m = map(int, input().split())
 seq = [0]*n
