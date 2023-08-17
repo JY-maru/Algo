@@ -31,8 +31,6 @@ def sol(k):
             sol(k+1)
             used[i] = False
 
-
-
 ## input
 n, m = map(int, input().split())
 elem = sorted(list(map(int, input().split())))
