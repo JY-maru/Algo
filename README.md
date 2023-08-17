@@ -1,6 +1,10 @@
 # Algorithm
 - 코딩테스트 문제 풀이를 위한 Repo
 - 답 출력을 위한 기능을 메소드화 하여 구현해보는 편입니다 :)
+
+## 👨‍💻 BOJ Rank 
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=jeongyeon2134)](https://solved.ac/jeongyeon2134/)
+
 ## 문제 출처
 - BOJ
 - Programmers
