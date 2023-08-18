@@ -11,6 +11,7 @@
 
 ## 목차
 - 탐색 (BFS & DFS)
+- Back tracking(DFS)
 - 이진탐색 (Binary Search)
 - 완전탐색 (Brute Force)
 - 동적 프로그래밍 (DP)
