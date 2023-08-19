@@ -31,7 +31,6 @@ def sol(n,k):
                 visited_time[nx] = visited_time[vx] + 1
                 will_visit.append(nx)
     
-
     print(visited_time[k])
     
 ## input 
