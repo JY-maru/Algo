@@ -20,7 +20,7 @@ def sol(n,k):
 
     Min, Max = 0, 1e5
     will_visit = deque([n])
-    visited = []*(int(Max+1))
+    visited = [float('inf')]*(int(Max+1))
     visited[n]= 0
     answer = 0 #가능한 가짓수
 
@@ -31,7 +31,7 @@ def sol(n,k):
 
         for nx in [vx+1, vx-1, vx*2]:
             # 답 중복되는 경우 (visited[nx] == visited[vx] + 1 : 이미 업데이트 됨)도 포함하기 위함.
-            if Min <= nx <= Max and (visited[nx] == visited[vx] + 1 or visited[nx] == -1) :
+            if Min <= nx <= Max and visited[nx] >= visited[vx] + 1 :
                 will_visit.append(nx)
                 visited[nx] = visited[vx] + 1
     return visited[k],answer
