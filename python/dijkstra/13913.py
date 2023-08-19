@@ -46,7 +46,7 @@ def sol(n,k):
     while tmp != n:
         shortestT.appendleft(tmp)
         tmp = prev_x[tmp]
-    shortestT.append(n)
+    shortestT.appendleft(n)
 
     print(visited_time[k])
     print(' '.join(map(str, shortestT)))
