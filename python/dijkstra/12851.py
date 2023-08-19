@@ -31,7 +31,7 @@ def sol(n,k):
             answer += 1
 
         for nx in [vx+1, vx-1, vx*2]:
-            # 답 중복되는 경우 (visited[nx] == visited[vx] + 1 : 이미 업데이트 됨)도 포함하기 위함.
+            # 업데이트 필요한 경우에 업뎃. 다만 같을 때(=)도 포함.
             if Min <= nx <= Max and visited[nx] >= visited[vx] + 1 :
                 will_visit.append(nx)
                 visited[nx] = visited[vx] + 1
