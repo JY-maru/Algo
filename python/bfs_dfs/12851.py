@@ -20,7 +20,7 @@ def sol(n,k):
 
     Min, Max = 0, 1e5
     will_visit = deque([n])
-    visited = [-1]*(int(Max+1))
+    visited = []*(int(Max+1))
     visited[n]= 0
     answer = 0 #가능한 가짓수
 
