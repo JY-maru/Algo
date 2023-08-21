@@ -37,9 +37,9 @@ n = int(input())
 maps = [[0]*n for _ in range(n)]
 # 열 점유 여부
 used_c = [False]*n
-# y=x 선상
+# y = x 선상 점유 여부
 used_up = [False]*(2*(n-1)+1)
-#y=-x 선상
+# y = -x 선상 점유 여부
 used_down = [False]*(2*(n-1)+1)
 
 cnt = 0
