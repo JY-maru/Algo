@@ -13,7 +13,7 @@ N이 주어졌을 때, 퀸을 놓는 방법의 수를 구하는 프로그램을 
 '''
 ## method
 def sol(k): # k : 놓은 말 개수 - 점유 행 번호로도 활용 가능
-    # 퀸 : 상하좌우 - x, y 좌표 확인 / 대각선 - (y=x 선상 : used_up) x-y 같으면. (y=-x 선상 : used_down) x+y같으면 놓을 수 없음.
+    # 퀸 : 상하좌우 - x, y 좌표 확인 / 대각선 - (y=x 선상 : used_up) r+c 같으면. (y=-x 선상 : used_down) r-c같으면 놓을 수 없음.
     global n, cnt
     
     if k == n :
@@ -30,7 +30,6 @@ def sol(k): # k : 놓은 말 개수 - 점유 행 번호로도 활용 가능
             used_c[i] = False
             used_up[k+i] = False
             used_down[(n-1)+k-i] = False
-
 
 ## input
 n = int(input())
