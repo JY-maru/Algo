@@ -68,6 +68,8 @@ tr.postorder()
 print(tr.root())
 '''
 
+# -> 입력이 들어오면 트리를 생성하지 않고 바로 후위 순회식 출력
+# root보다 큰 수가 나오는 구간부터 오른쪽 서브트리므로 자름.
 ## method
 def postorder(start, end):
     if start > end :
