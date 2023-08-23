@@ -18,5 +18,6 @@
 - 탐욕 (Greedy)
 - 구현 (Implement)
 - 정렬 (Sort)
+- 트리 (Tree)
 - 자료구조
 (Stack, Queue, Min Heap, ...)
