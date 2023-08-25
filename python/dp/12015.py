@@ -16,12 +16,12 @@
 ## method
 def sol(n):
     dp = [1]*n
-    max = arr[0]
+    maxv = arr[0]
     idx = 0
 
     for i in range(1,n):
-        if arr[i] > max:
-            max = arr[i]
+        if arr[i] > maxv:
+            maxv = arr[i]
             dp[i] = max(dp[idx]+1, dp[i])
             print(dp)
             idx = i
@@ -31,6 +31,5 @@ def sol(n):
 ## input
 N = int(input())
 arr = list(map(int,input().split()))
-print(arr)
 ## output
 print(sol(N))
