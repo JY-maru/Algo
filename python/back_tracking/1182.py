@@ -15,7 +15,6 @@ def sol(k,total): # slicing 범위
     global N, S, cnt
     if k == N :
         if total == S:
-            print(total)
             cnt += 1
         return 
     
