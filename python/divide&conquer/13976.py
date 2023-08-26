@@ -9,4 +9,47 @@
 출력
 첫째 줄에 경우의 수를 1,000,000,007로 나눈 나머지를 출력한다.
 '''
-print((-1)**1)
+## method
+def pow_matrix(n): # n : 지수승 / return -> matrix
+    global MOD
+    if n in (0,1) : return matrix[1]
+    elif matrix[n] != []: return matrix[n]
+    else :
+        half = n // 2 
+        if n % 2 == 1:
+            m1 = pow_matrix(half)
+            m2 = pow_matrix(half+1)
+        else : 
+            m1 = pow_matrix(half)
+            m2 = pow_matrix(half)
+        e00 = ((m1[0][0]*m2[0][0]) + m1[0][1]*m2[1][0])
+        e01 = (m1[0][0]*m2[0][1] + m1[0][1]*m2[1][1])
+        e10 = (m1[1][0]*m2[0][0] + m1[1][1]*m2[1][0]) 
+        e11 = (m1[1][0]*m2[0][1] + m1[1][1]*m2[1][1])
+            
+        matrix[n].append([e00,e01])
+        matrix[n].append([e10,e11])
+        
+        for i in range(2):
+            for j in range(2):
+                if matrix[n][i][j] > 0:
+                    matrix[n][i][j]= matrix[n][i][j]%MOD
+                else:
+                    matrix[n][i][j]= (-1)*(((-1)*(matrix[n][i][j]))%MOD)
+                
+        return matrix[n]
+## input
+from collections import defaultdict
+N = int(input())
+matrix = defaultdict(list)
+matrix[1] = [[4,-1],[1,0]]
+MOD = int(1e9+7)
+
+## output
+if N%2 == 1: print(MOD)
+else:
+    result = pow_matrix(N//2 - 1)
+    print(result)
+    print((result[0][0]*3 + result[0][1]))
+    
+
