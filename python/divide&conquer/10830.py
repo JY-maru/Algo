@@ -15,17 +15,17 @@
 '''
 ## method
 
-def sol(b):
+def sol(b): # memo사용
     if expo[b] != [] : return expo[b]
-    
-    half = sol(b>>1)
-    res = mul(half,half)
-    if b%2 == 1:
-        res = mul(res,expo[1])
-    expo[b] = res
-    return expo[b]
+    else :
+        half = sol(b>>1)
+        res = mul(half,half)
+        if b%2 == 1:
+            res = mul(res,expo[1])
+        expo[b] = res
+        return expo[b]
 
-# def sol(b):
+# def sol(b): # memo사용 x
 #     if b == 1 : return matrix
 #     else :
 #         half = b >> 1
