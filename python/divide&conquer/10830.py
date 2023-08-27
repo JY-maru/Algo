@@ -14,15 +14,27 @@
 첫째 줄부터 N개의 줄에 걸쳐 행렬 A를 B제곱한 결과를 출력한다.
 '''
 ## method
+
 def sol(b):
     if expo[b] != [] : return expo[b]
-    else :
-        half = sol(b>>1)
-        res = mul(half,half)
-        if b%2 == 1:
-            res = mul(res,expo[1])
-        expo[b] = res
-        return expo[b]
+    
+    half = sol(b>>1)
+    res = mul(half,half)
+    if b%2 == 1:
+        res = mul(res,expo[1])
+    expo[b] = res
+    return expo[b]
+
+# def sol(b):
+#     if b == 1 : return matrix
+#     else :
+#         half = b >> 1
+#         res = sol(half)
+#         if b % 2 :
+#             return mul(mul(res,res),matrix)
+#         else :
+#             return mul(res,res)
+            
 
 def mul(m1,m2):
     global N
@@ -37,17 +49,22 @@ def mul(m1,m2):
 
 ## input
 from collections import defaultdict
+import sys
+input = sys.stdin.readline
 N, B = map(int, input().split())
 matrix = [list(map(int,input().split())) for _ in range(N)]
 expo = defaultdict(list)
+# 조건에서 1000보다 작거나 같은 경우라고 하였으므로, 1000일 경우 원소는 0이되어야 함.
 for i in range(N):
     for j in range(N):
         matrix[i][j]%=1000
 expo[1] = matrix
+
 ## output
 for e in sol(B):
     print(*e)
-               
+
+# test matrix
 # res = [[0]*N for _ in range(N)]
 # m1 = expo[1]
 # m2 = expo[1]
