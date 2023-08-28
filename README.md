@@ -1,13 +1,14 @@
 # Algorithm
 - 코딩테스트 문제 풀이를 위한 Repo
-- 답 출력을 위한 기능을 메소드화 하여 구현해보는 편입니다 :)
+- BOJ : safari
+- Programmers : chrome
 
 ## 👨‍💻 BOJ Rank 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=jeongyeon2134)](https://solved.ac/jeongyeon2134/)
 
 ## 문제 출처
 - BOJ
-- Programmers : 아직 업로드하지 않았습니다.
+- Programmers 
 
 ## 목차
 - 탐색 (BFS & DFS)
