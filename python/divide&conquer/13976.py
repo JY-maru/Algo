@@ -1,4 +1,4 @@
-# P5
+# P5 : 타일 채우기 2
 '''
 문제
 3×N 크기의 벽을 2×1, 1×2 크기의 타일로 채우는 경우의 수를 구해보자.
@@ -11,44 +11,38 @@
 '''
 ## method
 def pow_matrix(n): # n : 지수승 / return -> matrix
-    global MOD
-    if n in (0,1) : return matrix[1]
-    elif matrix[n] != []: return matrix[n]
+    
+    if n == 1 : return [[4,-1],[1,0]]
+    elif n == 0 : return [[1,0],[0,0]]
     else :
-        half = n // 2 
-        if n % 2 == 1:
-            m1 = pow_matrix(half)
-            m2 = pow_matrix(half+1)
-        else : 
-            m1 = pow_matrix(half)
-            m2 = pow_matrix(half)
-        e00 = ((m1[0][0]*m2[0][0]) + m1[0][1]*m2[1][0])
-        e01 = (m1[0][0]*m2[0][1] + m1[0][1]*m2[1][1])
-        e10 = (m1[1][0]*m2[0][0] + m1[1][1]*m2[1][0]) 
-        e11 = (m1[1][0]*m2[0][1] + m1[1][1]*m2[1][1])
-
-        matrix[n].append([
-            e00%MOD if e00 > 0 else (-1)*(((-1)*e00)%MOD),
-            e01%MOD if e01 > 0 else (-1)*(((-1)*e01)%MOD)
-            ])
-        matrix[n].append([
-            e10%MOD if e10 > 0 else (-1)*(((-1)*e10)%MOD),
-            e11%MOD if e11 > 0 else (-1)*(((-1)*e11)%MOD)
-            ])
+        half = pow_matrix(n >> 1)
+        if n%2 :
+            return mul_matrix(mul_matrix(half,half),pow_matrix(1))
+        else :
+            return mul_matrix(half,half)
         
-        return matrix[n]
+def mul_matrix(m1,m2): 
+    global MOD
+    res = [[0]*2 for _ in range(2)]
+    for i in range(2):
+        for j in range(2):
+            for k in range(2):
+                res[i][j] += ((m1[i][k] * m2[k][j]))
+            res[i][j] %= MOD
+    return res
 ## input
 from collections import defaultdict
 N = int(input())
-matrix = defaultdict(list)
-matrix[1] = [[4,-1],[1,0]]
 MOD = int(1e9+7)
 
 ## output
-if N%2 == 1: print(MOD)
+if N%2 == 1: print(0)
 else:
-    result = pow_matrix(N//2 - 1)
-    print(result)
-    print(result[0][0]*3 + result[0][1])
-    
+    sub = [[3,0],[1,0]] # (dp1,dp0 )
+
+    result = pow_matrix(N//2-1)
+    # 마지막에 열벡터 (3,1)을 곱할 때 모듈러 연산이 실행되지 않음.
+    answer = mul_matrix(result,sub)
+
+    print(answer[0][0])
 
