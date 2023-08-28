@@ -22,6 +22,7 @@ def dfs(graph,start,visited=[]):
     
 
 input_list = list(map(int,input().split())) # idx 0: 노드수, 1: 간선 수, 2: 출발 node
+
 graph = defaultdict(list)
 visit_check = [0 for _ in range(input_list[0]+1)]
 for _ in range(input_list[1]):
