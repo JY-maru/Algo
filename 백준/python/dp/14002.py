@@ -28,6 +28,7 @@ def sol(N):
     search_elem = max(dp)
     print(search_elem)
 
+    # 역순으로 탐색
     for i in range(N-1,-1,-1):
         if search_elem == 0: break
         if dp[i] == search_elem:
