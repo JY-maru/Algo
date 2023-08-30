@@ -13,20 +13,27 @@
 출력
 첫째 줄에 수열 A의 가장 긴 증가하는 부분 수열의 길이를 출력한다.
 '''
+# [0,3,...] 이런 memo에 top보다 큰 원소는 추가, 아닌 원소들은 기존 memo에 추가할 적합한 자리를 찾으며
 ## method
 def sol(n):
-    dp = [1]*n
-    maxv = arr[0]
-    idx = 0
+    memo = [0]
 
-    for i in range(1,n):
-        if arr[i] > maxv:
-            maxv = arr[i]
-            dp[i] = max(dp[idx]+1, dp[i])
-            print(dp)
-            idx = i
+    for elem in arr:
+        if elem > memo[-1] : memo.append(elem)
+        else : # 들어가서 바꿀 자리 찾음
+            left = 0
+            right = len(memo) # 탐색 길이 만큼
 
-    return max(dp)
+            while left < right:
+                mid = (left+right) // 2
+
+                if memo[mid] < elem:
+                    left = mid + 1
+                else :
+                    right = mid # 탐색 길이 만큼
+            memo[right] = elem
+    
+    return len(memo) -1
 
 ## input
 N = int(input())
