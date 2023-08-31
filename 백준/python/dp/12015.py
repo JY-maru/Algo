@@ -15,7 +15,7 @@
 '''
 # [0,3,...] 이런 memo에 top보다 큰 원소는 추가, 아닌 원소들은 기존 memo에 추가할 적합한 자리를 찾으며
 ## method
-def sol(n):
+def sol():
     memo = [0]
 
     for elem in arr:
@@ -39,4 +39,4 @@ def sol(n):
 N = int(input())
 arr = list(map(int,input().split()))
 ## output
-print(sol(N))
+print(sol())
