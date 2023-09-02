@@ -15,7 +15,7 @@
 출력
 S를 T로 바꿀 수 있으면 1을 없으면 0을 출력한다.
 '''
-
+# 맨 뒤에 문자가 추가되는 것은 동일하므로, 맨 뒤 문자를 보고 앞의 나머지 문자열을 바꿔나가며 처음 모양과 일치하는 지 확인.
 ## method
 def sol(s,t): # t -> s
     cur_string = t
@@ -32,7 +32,6 @@ def sol(s,t): # t -> s
     if cur_string == s : return 1
     else : return 0
 
-    
 ## input
 s = input()
 t = input()
